@@ -1,28 +1,44 @@
 public class PalindroneCheckerApp {
     /**
+     * ============================================================
+     * MAIN CLASS - UseCase2PalindromeCheckerApp
+     * ============================================================
      *
-     * MAIN CLASS - UseCase1PalindromeApp
-
-     * Use Case 1: Application Entry & Welcome Message
-
-* Description:
-            * This class represents the entry point of the
-* Palindrome Checker Management System.
-
-            * At this stage, the application:
-            * - Starts execution from the main() method
-* - Displays a welcome message
-* - Shows application version
-*
-     * No palindrome logic is implemented yet.
-     *  The goal is to establish a clear startup flow.
-* @author Haritha
-* @version 1.0
-     * */
+     * Use Case 2: Hardcoded Palindrome Validation
+     *
+     * Description:
+     * This class demonstrates basic palindrome validation
+     * using a hardcoded string value.
+     *
+     * At this stage, the application:
+     * - Stores a predefined string
+     * - Compares characters from both ends
+     * - Determines whether the string is a palindrome
+     * - Displays the result on the console
+     *
+     * This use case introduces fundamental comparison logic
+     * before using advanced data structures.
+     *
+     * @Author Haritha
+     * @Version 2.0
+     */
     public static void main(String[] args){
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Author Haritha");
-        System.out.println("Version 1.0");
-        System.out.println("System initialized successfully");
+        System.out.println("Version 2.0");
+
+        String word = "madam";
+        String reverse = "";
+
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reverse = reverse + word.charAt(i);
+        }
+
+        if (word.equals(reverse)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not Palindrome");
+        }
+
     }
 }
