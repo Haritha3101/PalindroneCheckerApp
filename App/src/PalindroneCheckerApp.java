@@ -1,45 +1,49 @@
+import java.util.LinkedList;
+import java.util.Scanner;
 public class PalindroneCheckerApp {
     /**
-     * ============================================================
-     * MAIN CLASS - UseCase3PalindromeCheckerApp
-     * ============================================================
-     *
-     * Use Case 3: Reverse String Based Palindrome Check
-     *
-     * Description:
-     * This class checks whether a string is a palindrome
-     * by reversing the string and comparing it with
-     * the original value.
-     *
-     * At this stage, the application:
-     * - Iterates the string in reverse order
-     * - Builds a reversed version
-     * - Compares original and reversed strings
-     * - Displays the validation result
-     *
-     * This introduces transformation-based validation.
-     *
-     * @Author Developer
-     * @Version 3.0
+     * ===========================================================================
+     * MAIN CLASS - UseCase8PalindroneCheckerApp
+     * ===========================================================================
+     * * Use Case 8: Linked List Based Palindrone Checker
+     * * Description:
+     * This class checks whether a string is a palindrone
+     * using a LinkedList.
+     * * Characters are added to the list and then compared
+     * by removing elements from both ends:
+     * * - removeFirst()
+     * - removeLast()
+     * * This demonstrates how LinkedList supports
+     * double-ended operations for symmetric validation.
+     * * @author Developer
+     * @version 8.0
      */
-    public static void main(String[] args){
-        System.out.println("Welcome to the Palindrome Checker Management System");
-        System.out.println("Author Haritha");
-        System.out.println("Version 2.0");
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-        String original = "madam";
+        System.out.print("Enter string to check: ");
+        String input = sc.nextLine();
 
-        String reversed = "";
-
-        for (int i = original.length() - 1; i >= 0; i--) {
-            reversed = reversed + original.charAt(i);
+        LinkedList<Character> list = new LinkedList<>();
+        for (char c : input.toLowerCase().toCharArray()) {
+            list.add(c);
         }
 
-        if (original.equals(reversed)) {
-            System.out.println(original + " is a Palindrome.");
+        boolean isPalindrone = true;
+
+        while (list.size() > 1) {
+            if (list.removeFirst() != list.removeLast()) {
+                isPalindrone = false;
+                break;
+            }
+        }
+
+        if (isPalindrone) {
+            System.out.println("\"" + input + "\" is a palindrone.");
         } else {
-            System.out.println(original + " is NOT a Palindrome.");
+            System.out.println("\"" + input + "\" is NOT a palindrone.");
         }
 
+        sc.close();
+        }
     }
-}
