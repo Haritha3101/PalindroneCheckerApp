@@ -18,36 +18,42 @@ public class PalindroneCheckerApp {
      * @version 9.0
      */
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-            Scanner sc = new Scanner(System.in);
+        System.out.println("--- Palindrone Checker (Normalized) ---");
+        System.out.print("Enter a string or phrase: ");
+        String input = sc.nextLine();
 
-            System.out.print("Enter string to check for palindrone: ");
-            String input = sc.nextLine();
+        if (input == null || input.isEmpty()) {
+            System.out.println("Invalid input.");
+        } else {
+            String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
-            if (input == null || input.isEmpty()) {
-                System.out.println("Invalid input.");
+            boolean isPalindrone = checkPalindrone(normalized);
+
+            if (isPalindrone) {
+                System.out.println("Result: \"" + input + "\" is a palindrone.");
             } else {
-                String processed = input.toLowerCase();
-                boolean isPalindrone = check(processed, 0, processed.length() - 1);
-
-                if (isPalindrone) {
-                    System.out.println("\"" + input + "\" is a palindrone.");
-                } else {
-                    System.out.println("\"" + input + "\" is NOT a palindrone.");
-                }
+                System.out.println("Result: \"" + input + "\" is NOT a palindrone.");
             }
-            sc.close();
         }
-        private static boolean check(String s, int start, int end) {
-            if (start >= end) {
-                return true;
-            }
 
+        sc.close();
+    }
+
+    private static boolean checkPalindrone(String s) {
+        int start = 0;
+        int end = s.length() - 1;
+
+        while (start < end) {
             if (s.charAt(start) != s.charAt(end)) {
                 return false;
             }
-
-            return check(s, start + 1, end - 1);
+            start++;
+            end--;
         }
+        return true;
     }
+}
+
 
