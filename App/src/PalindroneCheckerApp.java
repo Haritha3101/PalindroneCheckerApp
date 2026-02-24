@@ -1,49 +1,53 @@
-import java.util.LinkedList;
 import java.util.Scanner;
 public class PalindroneCheckerApp {
     /**
      * ===========================================================================
-     * MAIN CLASS - UseCase8PalindroneCheckerApp
+     * MAIN CLASS - UseCase9RecursivePalindrone
      * ===========================================================================
-     * * Use Case 8: Linked List Based Palindrone Checker
+     * * Use Case 9: Recursive Palindrone Checker
      * * Description:
-     * This class checks whether a string is a palindrone
-     * using a LinkedList.
-     * * Characters are added to the list and then compared
-     * by removing elements from both ends:
-     * * - removeFirst()
-     * - removeLast()
-     * * This demonstrates how LinkedList supports
-     * double-ended operations for symmetric validation.
+     * This class validates a palindrone using recursion.
+     * * Characters are compared from the outer positions
+     * moving inward using recursive calls.
+     * * The recursion stops when:
+     * - All characters are matched, or
+     * - A mismatch is found.
+     * * This use case demonstrates divide-and-conquer
+     * logic using method recursion.
      * * @author Developer
-     * @version 8.0
+     * @version 9.0
      */
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter string to check: ");
-        String input = sc.nextLine();
+            Scanner sc = new Scanner(System.in);
 
-        LinkedList<Character> list = new LinkedList<>();
-        for (char c : input.toLowerCase().toCharArray()) {
-            list.add(c);
-        }
+            System.out.print("Enter string to check for palindrone: ");
+            String input = sc.nextLine();
 
-        boolean isPalindrone = true;
+            if (input == null || input.isEmpty()) {
+                System.out.println("Invalid input.");
+            } else {
+                String processed = input.toLowerCase();
+                boolean isPalindrone = check(processed, 0, processed.length() - 1);
 
-        while (list.size() > 1) {
-            if (list.removeFirst() != list.removeLast()) {
-                isPalindrone = false;
-                break;
+                if (isPalindrone) {
+                    System.out.println("\"" + input + "\" is a palindrone.");
+                } else {
+                    System.out.println("\"" + input + "\" is NOT a palindrone.");
+                }
             }
+            sc.close();
         }
+        private static boolean check(String s, int start, int end) {
+            if (start >= end) {
+                return true;
+            }
 
-        if (isPalindrone) {
-            System.out.println("\"" + input + "\" is a palindrone.");
-        } else {
-            System.out.println("\"" + input + "\" is NOT a palindrone.");
-        }
+            if (s.charAt(start) != s.charAt(end)) {
+                return false;
+            }
 
-        sc.close();
+            return check(s, start + 1, end - 1);
         }
     }
+
