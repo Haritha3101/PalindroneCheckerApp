@@ -10,3 +10,5 @@
 # By comparing the front of the Queue with the top of the Stack, the program can determine if the string reads the same both ways.
 # The UC7 is to validate a palindrome using a Deque (Double Ended Queue) for bidirectional comparison.
 # Unlike standard queues, a Deque allows you to access and remove elements from both the front and the rear.
+# The UC8 is to validate a palindrone by leveraging the double-ended capabilities of a LinkedList.
+# The program compares the string by removing elements from both ends simultaneously.
