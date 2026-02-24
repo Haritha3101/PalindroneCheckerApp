@@ -15,3 +15,4 @@
 # The UC9 is to validate a palindrone by having a method call itself to solve smaller subproblems.
 # The UC10 is to validate phrases as palindromes by ignoring spaces, punctuation, and letter casing.
 # The UC11 is to design a console-based Java application that validates palindromes while strengthening OOPS concepts.
+# The UC12 is to implement the Strategy Design Pattern, allowing for dynamic and extensible algorithm selection.
