@@ -16,3 +16,4 @@
 # The UC10 is to validate phrases as palindromes by ignoring spaces, punctuation, and letter casing.
 # The UC11 is to design a console-based Java application that validates palindromes while strengthening OOPS concepts.
 # The UC12 is to implement the Strategy Design Pattern, allowing for dynamic and extensible algorithm selection.
+# The UC13 is to introduce benchmarking concepts by measuring how long different algorithms take to execute.
