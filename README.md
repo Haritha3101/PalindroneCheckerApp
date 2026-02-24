@@ -13,3 +13,4 @@
 # The UC8 is to validate a palindrone by leveraging the double-ended capabilities of a LinkedList.
 # The program compares the string by removing elements from both ends simultaneously.
 # The UC9 is to validate a palindrone by having a method call itself to solve smaller subproblems.
+# The UC10 is to validate phrases as palindromes by ignoring spaces, punctuation, and letter casing.
