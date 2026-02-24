@@ -1,52 +1,41 @@
 import java.util.Scanner;
 public class PalindroneCheckerApp {
-    /**
-     * ===========================================================================
-     * MAIN CLASS - UseCase9RecursivePalindrone
-     * ===========================================================================
-     * * Use Case 9: Recursive Palindrone Checker
-     * * Description:
-     * This class validates a palindrone using recursion.
-     * * Characters are compared from the outer positions
-     * moving inward using recursive calls.
-     * * The recursion stops when:
-     * - All characters are matched, or
-     * - A mismatch is found.
-     * * This use case demonstrates divide-and-conquer
-     * logic using method recursion.
-     * * @author Developer
-     * @version 9.0
-     */
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("--- Palindrone Checker (Normalized) ---");
-        System.out.print("Enter a string or phrase: ");
+        // Create an instance of the service class
+        PalindromeService service = new PalindromeService();
+
+        System.out.print("Enter string to check: ");
         String input = sc.nextLine();
 
-        if (input == null || input.isEmpty()) {
-            System.out.println("Invalid input.");
+        if (service.checkPalindrome(input)) {
+            System.out.println("\"" + input + "\" is a palindrome.");
         } else {
-            String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-
-            boolean isPalindrone = checkPalindrone(normalized);
-
-            if (isPalindrone) {
-                System.out.println("Result: \"" + input + "\" is a palindrone.");
-            } else {
-                System.out.println("Result: \"" + input + "\" is NOT a palindrone.");
-            }
+            System.out.println("\"" + input + "\" is NOT a palindrome.");
         }
 
         sc.close();
     }
+}
 
-    private static boolean checkPalindrone(String s) {
+
+class PalindromeService {
+
+    /**
+     * Checks whether the input string is a palindrome.
+     * * @param input Input string
+     * @return true if palindrome, false otherwise
+     */
+    public boolean checkPalindrome(String input) {
         int start = 0;
-        int end = s.length() - 1;
+        int end = input.length() - 1;
+
+        String str = input.toLowerCase();
 
         while (start < end) {
-            if (s.charAt(start) != s.charAt(end)) {
+            if (str.charAt(start) != str.charAt(end)) {
                 return false;
             }
             start++;
